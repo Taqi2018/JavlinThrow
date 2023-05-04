@@ -26,6 +26,7 @@ public class JavelinThrower : MonoBehaviour
         {
             javelin.rotation = cam.rotation;
         }
+       
 
 
         if (PlayerController.instance.throwAfterAnimation)
@@ -39,7 +40,8 @@ public class JavelinThrower : MonoBehaviour
      
 
             javelin.velocity = cam.forward * force*Time.deltaTime;
-            
+            transform.SetParent(null);
+
 
 
         }
@@ -47,6 +49,14 @@ public class JavelinThrower : MonoBehaviour
 
 
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Ground")
+        {
+            javelin.isKinematic = true;
+            Debug.Log("Hit");
+        }
     }
 
 

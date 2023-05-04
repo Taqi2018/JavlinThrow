@@ -18,7 +18,7 @@ public class AnimationScript : MonoBehaviour
         
         if (PlayerController.instance.isWalking)
         {
-            Debug.Log("Walk!!!");
+        
             Animator.SetBool("isWalking", true);
         }
         if (!PlayerController.instance.isWalking)

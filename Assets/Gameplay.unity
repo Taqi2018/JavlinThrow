@@ -327,7 +327,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448714278}
-  m_LocalRotation: {x: 0.20701699, y: -0.0018405115, z: 0.00038945445, w: 0.97833556}
+  m_LocalRotation: {x: 0.20701699, y: -0.0018404508, z: 0.0003894416, w: 0.97833556}
   m_LocalPosition: {x: 0.011287382, y: 3.756, z: -2.9999788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -439,7 +439,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454809004}
-  m_LocalRotation: {x: 0.20701699, y: -0.0018404893, z: 0.00038944976, w: 0.97833556}
+  m_LocalRotation: {x: 0.20701699, y: -0.0018404726, z: 0.0003894462, w: 0.97833556}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -541,9 +541,9 @@ GameObject:
   - component: {fileID: 868900884}
   - component: {fileID: 868900883}
   - component: {fileID: 868900882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,7 +620,7 @@ Transform:
   m_GameObject: {fileID: 868900881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.250048, y: 0.74, z: 1.4158964}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -834,7 +834,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884845708}
-  m_LocalRotation: {x: 0.22975251, y: -0.0018309087, z: 0.00043221892, w: 0.9732473}
+  m_LocalRotation: {x: 0.22975254, y: -0.0018308798, z: 0.00043221214, w: 0.9732473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   javelin: {fileID: 1151528048}
   throwPoint: {fileID: 1367208622}
   cam: {fileID: 1234618451}
-  force: 400
+  force: 700
 --- !u!65 &1151528050
 BoxCollider:
   m_ObjectHideFlags: 0

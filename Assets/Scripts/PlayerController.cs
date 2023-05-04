@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        Debug.Log(isThrowing);
+  
 
         if(!isThrowing)
         {
@@ -101,9 +101,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(throwTime);
+        yield return new WaitForSeconds(1.5f);
         throwAfterAnimation = true;
-     
+        yield return new WaitForSeconds(throwTime-1.5f);
+
         isThrowing = false;
        
 
