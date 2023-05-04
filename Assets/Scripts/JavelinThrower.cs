@@ -1,27 +1,57 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class JavelinThrower : MonoBehaviour
 {
+    public static JavelinThrower instance;
     public Rigidbody javelin;
+    public Transform throwPoint;
+    public Transform cam;
     public float force;
-    public Transform playerTransform;
+    bool shouldRotate;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
+        shouldRotate = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-      
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (shouldRotate)
         {
-            javelin.isKinematic = false;
-            javelin.AddRelativeForce(new Vector3(0, force, 0));
-            Debug.Log("Throw!!");
+            javelin.rotation = cam.rotation;
         }
+
+
+        if (PlayerController.instance.throwAfterAnimation)
+        {
+            PlayerController.instance.throwAfterAnimation=false;
+            shouldRotate = false;
+            javelin.isKinematic = false;
+            
+
+      
+     
+
+            javelin.velocity = cam.forward * force*Time.deltaTime;
+            
+
+
+        }
+
+
+
+
     }
+
+
+
+
+
+
 }

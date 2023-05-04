@@ -15,6 +15,7 @@ public class AnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (PlayerController.instance.isWalking)
         {
             Debug.Log("Walk!!!");
@@ -42,10 +43,10 @@ public class AnimationScript : MonoBehaviour
             Animator.SetBool("isRunning", false);
 
         }
-        if (!PlayerController.instance.isThrowing)
+        if (!PlayerController.instance.isThrowing )
         {
             Animator.SetBool("isThrowing", false);
-     
+          
         }
 
     }

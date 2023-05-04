@@ -12,7 +12,13 @@ public class PlayerController : MonoBehaviour
     public  bool isRunning;
     public float walkTime;
     public float throwTime;
+    public float force;
+    public Rigidbody javelin;
+
+    public bool throwAfterAnimation;
+
     public bool isThrowing;
+
 
     public static PlayerController instance;
   
@@ -25,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-       
+ 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             
@@ -40,24 +46,30 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        Debug.Log(isThrowing);
+
         if(!isThrowing)
         {
 
-            
+           
             float vertical = Input.GetAxisRaw("Vertical");
-            // float horizantol = Input.GetAxisRaw("Horizontal");
+            //float horizantol = Input.GetAxisRaw("Horizontal");
             Vector3 inputDirection = new Vector3(0, 0, vertical).normalized;
+            float faceAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            
+            transform.rotation = Quaternion.Euler(0, faceAngle, 0);
+            
             if (inputDirection.magnitude > 0.1)
             {
 
                 isWalking = true;
-                float faceAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            
                 transform.rotation = Quaternion.Euler(0, faceAngle, 0);
                 Vector3 dirWithCam = Quaternion.Euler(0, faceAngle, 0) * Vector3.forward;
 
                 if (isWalking)
                 {
-                    characterController.Move(dirWithCam * speed*walkTime* Time.deltaTime);
+                    characterController.Move(dirWithCam * speed* Time.deltaTime);
                     walkTime += 1 * Time.deltaTime;
                     if (walkTime >= 2)
                     {
@@ -68,7 +80,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (isRunning)
                 {
-                    characterController.Move(dirWithCam * speed * 1.5f * Time.deltaTime);
+                    characterController.Move(dirWithCam * speed * 1.2f * Time.deltaTime);
                 }
 
             }
@@ -82,15 +94,21 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        IEnumerator Throw()
-        {
-            yield return new WaitForSeconds(throwTime);
-            isThrowing = false;
-            Debug.Log(isThrowing);
 
-        }
+    }
+   public IEnumerator Throw()
+    {
+
+
+
+        yield return new WaitForSeconds(throwTime);
+        throwAfterAnimation = true;
+     
+        isThrowing = false;
+       
+
+
     }
 
- 
-  
+
 }
