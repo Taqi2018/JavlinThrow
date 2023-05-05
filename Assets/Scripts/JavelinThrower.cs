@@ -8,7 +8,7 @@ public class JavelinThrower : MonoBehaviour
     public static JavelinThrower instance;
     public Rigidbody javelin;
     public Transform throwPoint;
-    public Transform cam;
+    public Camera mainCamera, javelinCamera;
     public float force;
     bool shouldRotate;
 
@@ -24,22 +24,31 @@ public class JavelinThrower : MonoBehaviour
     {
         if (shouldRotate)
         {
-            javelin.rotation = cam.rotation;
+            javelin.rotation = throwPoint.transform.rotation;
         }
-       
+
 
 
         if (PlayerController.instance.throwAfterAnimation)
         {
-            PlayerController.instance.throwAfterAnimation=false;
+
+            
+            javelinCamera.gameObject.SetActive(true);
+            javelinCamera.enabled = true;
+
+            mainCamera.gameObject.SetActive (false);
+            mainCamera.enabled = false;
+
+
+            PlayerController.instance.throwAfterAnimation = false;
             shouldRotate = false;
             javelin.isKinematic = false;
-            
 
-      
-     
 
-            javelin.velocity = cam.forward * force*Time.deltaTime;
+
+
+
+            javelin.velocity = throwPoint.transform.forward * force * Time.deltaTime;
             transform.SetParent(null);
 
 
@@ -52,11 +61,20 @@ public class JavelinThrower : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.collider.tag == "Ground")
         {
             javelin.isKinematic = true;
             Debug.Log("Hit");
         }
+        if (collision.collider.tag== "30METERS")
+        {
+            javelin.isKinematic = true;
+            Debug.Log("30Meters");
+        }
+
+    }
+   
     }
 
 
@@ -64,4 +82,3 @@ public class JavelinThrower : MonoBehaviour
 
 
 
-}

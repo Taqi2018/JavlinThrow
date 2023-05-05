@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - FoulLINE
+  - Javelin
+  - JavelinCamera
+  - 30METERS
+  - 40METERS
+  - 50METERS
+  - 60METERS
+  - 70METERS
+  - 80METERS
   layers:
   - Default
   - TransparentFX
