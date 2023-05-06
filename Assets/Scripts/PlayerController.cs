@@ -169,13 +169,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.name == "30Meters")
-        {
-           // javelin.isKinematic = true;
-            Debug.Log("30Meters");
-        }
-    }
 
-    }
+
+}
